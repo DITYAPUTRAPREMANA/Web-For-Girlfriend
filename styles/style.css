@@ -1,0 +1,656 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   FLOATING HEARTS BACKGROUND
+   ============================================ */
+.hearts-bg,
+.hearts-bg-birthday {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ffc1e3 100%);
+  transform: rotate(45deg);
+  opacity: 0.3;
+  animation: float-hearts 15s infinite ease-in-out;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ffc1e3 100%);
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -10px;
+  left: 0;
+}
+
+.heart:after {
+  left: 10px;
+  top: 0;
+}
+
+/* Different sizes and positions for hearts */
+.heart:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; width: 15px; height: 15px; }
+.heart:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; width: 25px; height: 25px; }
+.heart:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; width: 18px; height: 18px; }
+.heart:nth-child(4) { left: 40%; top: 10%; animation-delay: 1s; width: 22px; height: 22px; }
+.heart:nth-child(5) { left: 50%; top: 70%; animation-delay: 3s; width: 20px; height: 20px; }
+.heart:nth-child(6) { left: 60%; top: 30%; animation-delay: 5s; width: 16px; height: 16px; }
+.heart:nth-child(7) { left: 70%; top: 60%; animation-delay: 1.5s; width: 24px; height: 24px; }
+.heart:nth-child(8) { left: 80%; top: 90%; animation-delay: 3.5s; width: 19px; height: 19px; }
+.heart:nth-child(9) { left: 90%; top: 50%; animation-delay: 2.5s; width: 21px; height: 21px; }
+.heart:nth-child(10) { left: 5%; top: 65%; animation-delay: 4.5s; width: 17px; height: 17px; }
+.heart:nth-child(11) { left: 15%; top: 15%; animation-delay: 0.5s; width: 23px; height: 23px; }
+.heart:nth-child(12) { left: 25%; top: 95%; animation-delay: 1.8s; width: 18px; height: 18px; }
+.heart:nth-child(13) { left: 75%; top: 25%; animation-delay: 3.2s; width: 20px; height: 20px; }
+.heart:nth-child(14) { left: 85%; top: 75%; animation-delay: 4.8s; width: 22px; height: 22px; }
+.heart:nth-child(15) { left: 95%; top: 45%; animation-delay: 2.2s; width: 19px; height: 19px; }
+
+@keyframes float-hearts {
+  0%, 100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-30px) rotate(55deg);
+    opacity: 0.4;
+  }
+}
+
+/* Gentle floating animation for static text elements */
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* ============================================
+   LOGIN PAGE STYLES
+   ============================================ */
+.login_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #ffc1e3 0%, #ffafcc 25%, #ffc8dd 50%, #bde0fe 75%, #ffc1e3 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login_card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+  border: 3px solid rgba(255, 193, 227, 0.5);
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  animation: card-float 3s ease-in-out infinite;
+}
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.card_header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.emoji_circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff6b9d, #ffc1e3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 20px;
+  animation: pulse-glow 2s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+  }
+}
+
+.card_header h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 2.5rem;
+  color: #ff6b9d;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input_group {
+  position: relative;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: 55px;
+  border: 2px solid #ffc8dd;
+  border-radius: 15px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 2px solid #ff6b9d;
+  background: white;
+  box-shadow: 0 5px 20px rgba(255, 107, 157, 0.2);
+  transform: translateY(-2px);
+}
+
+input::placeholder {
+  color: #ffafcc;
+}
+
+button[type="submit"] {
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ff6b9d, #c9184a);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Quicksand", sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+}
+
+button[type="submit"]:active {
+  transform: translateY(-1px);
+}
+
+.btn_icon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+button[type="submit"]:hover .btn_icon {
+  transform: translateX(5px);
+}
+
+.login_description {
+  font-size: 14px;
+  color: #999;
+  margin-top: 20px;
+  padding: 0 10px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ============================================
+   BIRTHDAY PAGE STYLES
+   ============================================ */
+.song {
+  visibility: hidden;
+}
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  visibility: hidden;
+  width: 100vw;
+  background: linear-gradient(135deg, #ffc1e3 0%, #ffafcc 25%, #ffc8dd 50%, #bde0fe 75%, #ffc1e3 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.container > div {
+  left: 0;
+  right: 0;
+  top: 20vh;
+  position: absolute;
+}
+
+.one {
+  font-family: "Pacifico", cursive;
+  font-size: 4.5rem;
+  color: #ff6b9d;
+}
+
+.two {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.three {
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+  color: #ff6b9d;
+}
+
+.four .text-box {
+  border: 3px solid #ffc8dd;
+  border-radius: 25px;
+  margin: 0 auto;
+  padding: 30px;
+  position: relative;
+  width: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+}
+
+.text-box p {
+  margin: 0;
+  text-align: left;
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.hbd-chatbox {
+  margin-bottom: 2px;
+}
+
+
+.text-box .fake-btn {
+  background: linear-gradient(135deg, #ff6b9d, #c9184a);
+  border-radius: 10px;
+  bottom: -25px;
+  right: 20px;
+  position: absolute;
+  color: white;
+  padding: 12px 24px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+}
+
+.five p {
+  font-size: 2.2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #555;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.idea-3 strong {
+  background: linear-gradient(135deg, #ff6b9d, #c9184a);
+  color: white;
+  border-radius: 8px;
+  display: inline-block;
+  padding: 5px 15px;
+  box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+}
+
+.five .idea-5 {
+  font-family: "Pacifico", cursive;
+  font-size: 4.5rem;
+  color: #ff6b9d;
+}
+
+.idea-5 span,
+.idea-6 span,
+.wish-hbd span {
+  display: inline-block;
+}
+
+.idea-6 span {
+  font-family: "Pacifico", cursive;
+  font-size: 15rem;
+  color: #ff6b9d;
+}
+
+.six {
+  position: relative;
+  top: 10vh;
+  z-index: 1;
+}
+
+.six img {
+  display: inline-block;
+  height: 350px;
+  max-width: 100%;
+  border-radius: 20px;
+  border: 5px solid white;
+  box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4);
+}
+
+.six .hat {
+  position: absolute;
+  left: 41.5%;
+  top: -35%;
+  width: 60px;
+  rotate: 14deg;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.wish {
+  margin-top: 30px;
+}
+
+.wish-hbd {
+  font-family: "Pacifico", cursive;
+  font-size: 3.5em;
+  margin: 0;
+  text-transform: uppercase;
+  color: #ff6b9d;
+}
+
+.wish h5 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 20px 0 0;
+  color: #555;
+  max-width: 700px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+  line-height: 1.8;
+}
+
+.ballons img {
+  display: inline-block;
+  position: absolute;
+  filter: drop-shadow(0 5px 15px rgba(255, 107, 157, 0.3));
+}
+
+.ballons img:nth-child(even) {
+  left: -10%;
+}
+
+.ballons img:nth-child(odd) {
+  right: -10%;
+}
+
+.ballons img:nth-child(3n + 0) {
+  left: 30%;
+}
+
+.seven,
+.eight {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  pointer-events: none;
+}
+
+.eight svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  width: 25px;
+  z-index: -1;
+}
+
+.eight svg:nth-child(1) {
+  fill: #ff6b9d;
+  left: 5vw;
+  top: 7vh;
+}
+
+.eight svg:nth-child(2) {
+  fill: #ffc1e3;
+  left: 35vw;
+  top: 23vh;
+}
+
+.eight svg:nth-child(3) {
+  fill: #ffafcc;
+  left: 23vw;
+  top: 33vh;
+}
+
+.eight svg:nth-child(4) {
+  fill: #c9184a;
+  left: 57vw;
+  top: 43vh;
+}
+
+.eight svg:nth-child(5) {
+  fill: #ff758f;
+  left: 7vw;
+  top: 68vh;
+}
+
+.eight svg:nth-child(6) {
+  fill: #ffc8dd;
+  left: 77vw;
+  top: 42vh;
+}
+
+.eight svg:nth-child(7) {
+  fill: #ffb3c6;
+  left: 83vw;
+  top: 68vh;
+}
+
+.eight svg:nth-child(8) {
+  fill: #ff8fa3;
+  left: 37vw;
+  top: 86vh;
+}
+
+.eight svg:nth-child(9) {
+  fill: #ffcad4;
+  left: 87vw;
+  top: 94vh;
+}
+
+.nine p {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+#replay {
+  cursor: pointer;
+  z-index: 3;
+  color: #ff6b9d;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+}
+
+#replay:hover {
+  color: #c9184a;
+  transform: scale(1.05);
+}
+
+.last-smile {
+  font-size: 3rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media screen and (max-height: 1000px) {
+  .six .hat {
+    left: 40%;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .six .hat {
+    left: 37%;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .six .hat {
+    left: 32%;
+  }
+}
+
+@media screen and (max-height: 850px) and (max-width: 450px) {
+  .six .hat {
+    left: 32%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login_card {
+    padding: 40px 25px;
+  }
+
+  .card_header h2 {
+    font-size: 2rem;
+  }
+
+  .emoji_circle {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .one {
+    font-size: 3rem;
+  }
+
+  .two {
+    font-size: 1.1rem;
+  }
+
+  .three {
+    font-size: 2.5rem;
+  }
+
+  .four .text-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .text-box .fake-btn {
+    bottom: -30px;
+    right: 10px;
+    padding: 10px 20px;
+  }
+
+  .five p {
+    font-size: 1.5rem;
+  }
+
+  .idea-5 {
+    font-size: 3rem !important;
+  }
+
+  .idea-5 span {
+    display: block;
+  }
+
+  .idea-6 span {
+    font-size: 10rem;
+  }
+
+  .six img {
+    height: 250px;
+  }
+
+  .six .hat {
+    width: 50px;
+  }
+
+  .wish-hbd {
+    font-size: 2.2em;
+  }
+
+  .wish h5 {
+    font-size: 1rem;
+  }
+
+  .nine p {
+    font-size: 1.3rem;
+  }
+}
