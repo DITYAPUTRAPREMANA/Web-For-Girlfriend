@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Login untuk Sayang 💕</title>
+</head>
+
+<body>
+  <!-- Floating hearts background -->
+  <div class="hearts-bg">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <div class="login_container">
+    <div class="login_card">
+      <div class="card_header">
+        <div class="emoji_circle">💕</div>
+        <h2>Hi 👋🏼 Sayang</h2>
+        <p class="subtitle">Login dulu yuk untuk lihat surprise special!</p>
+      </div>
+      
+      <form id="loginForm" class="login_form">
+        <div class="input_group">
+          <input type="text" id="username" placeholder="Username" required />
+        </div>
+        <div class="input_group">
+          <input type="password" id="password" placeholder="Password" required />
+        </div>
+        <button type="submit" id="loginBtn">
+          <span>Masuk</span>
+          <span class="btn_icon">→</span>
+        </button>
+      </form>
+      
+      <p class="login_description">
+        Psssttt, usernamenya "user" dan passwordnya sama ya 🤫
+      </p>
+    </div>
+  </div>
+</body>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script src="./scripts/index.js"></script>
+
+</html>
