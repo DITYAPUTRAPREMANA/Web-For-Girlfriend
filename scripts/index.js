@@ -9,7 +9,7 @@ function validateForm() {
   var password = document.getElementById("password").value;
 
   // Validasi username dan password
-  if (username === "wopyu" && password === "sayangku") {
+  if (username === "wopyu" && password === "wopyu") {
     Swal.fire({
       icon: "success",
       title: "Login berhasil! 💕",
